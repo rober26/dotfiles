@@ -1,0 +1,37 @@
+* {
+    font-family: "JetBrains Mono", "Helvetica", Arial, sans-serif;
+    font-size: 13px;
+}
+
+window#waybar {
+    background-color: rgba(26, 27, 38, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #c0caf5;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #ffffff;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.active {
+    background-color: #7aa2f7;
+    color: #1a1b26;
+    border-radius: 4px;
+}
+
+#clock, #network, #battery, #pulseaudio, #custom-wallpaper {
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+#custom-wallpaper {
+    background-color: #bb9af7;
+    color: #1a1b26;
+    border-radius: 4px;
+    margin: 4px 0;
+}
