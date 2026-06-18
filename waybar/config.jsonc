@@ -18,9 +18,10 @@
     },
     "network": {
         "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀  Connected",
-        "format-disconnected": "⚠  Disconnected",
-        "tooltip-format": "{ifname} via {gwaddr}"
+        "format-ethernet": "󰈀 Connected",
+        "format-disconnected": "⚠ Disconnected",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "on-click": "networkmanager_dmenu"
     },
     "battery": {
         "states": {
@@ -33,13 +34,17 @@
         "format-icons": ["", "", "", "", ""]
     },
     "pulseaudio": {
-        "format": "  {volume}%",
-        "format-muted": "  Muted",
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁 Muted",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
         "on-click": "pavucontrol"
     },
     "custom/wallpaper": {
         "format": "🖼️",
-        "on-click": "waypaper",
+        "on-click": "~/.config/hypr/scripts/wallpaper-select.sh",
         "tooltip": false
     }
 }
+

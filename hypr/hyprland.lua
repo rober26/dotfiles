@@ -37,7 +37,7 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal    = "kitty"
-local fileManager = "dolphin"
+local fileManager = "yazi"
 local menu        = "hyprlauncher"
 
 
@@ -55,6 +55,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("waybar")
   hl.exec_cmd("swww-daemon")
   hl.exec_cmd("waypaper --restore")
+  hl.exec_once("mako")
 end)
 
 
@@ -94,10 +95,10 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
-        gaps_in  = 5,
-        gaps_out = 20,
+        gaps_in  = 2,
+        gaps_out = 4,
 
-        border_size = 2,
+        border_size = 1,
 
         col = {
             active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
@@ -268,7 +269,8 @@ local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + T", hl.dsp.window.fullscreen(0))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("hyprctl dispatch togglefloating && hyprctl dispatch resizeactive exact 90% 90% && hyprctl dispatch centerwindow"))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
@@ -314,6 +316,7 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
+hl.bind("Print",            hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot.sh"))
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----

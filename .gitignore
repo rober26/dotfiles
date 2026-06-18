@@ -1,12 +1,9 @@
-# Bloquear secretos y credenciales de GitHub
 gh/
 
-# Bloquear datos pesados y cachés del navegador
 mozilla/
 Google/
 chromium/
 
-# Bloquear otras cachés del sistema que no son código
 pulse/
 menus/
 gtk-3.0/
@@ -14,7 +11,9 @@ gtk-4.0/
 dconf/
 Thunar/
 xfce4/
+gthumb/
 *.log
+*.cache
 *.tmp
 go/
-go/
+
